@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TriviaGame</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
+
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+
+    <!-- JQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+    <!-- Inline CSS Style -->
+    <style>
+        body {
+
+            font-family: 'Gloria Hallelujah', cursive;
+            background: url("assets/images/background.jpg");
+            background-size: 100%;
+            font-size: 1em;
+
+        }
+
+        #header {
+
+            opacity: 0.5;
+        }
+
+        #title {
+
+            font-size: 35px;
+        }
+
+        .card {
+            opacity: .8;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="header" class="jumbotron">
+
+        <div id="title" class="container text-center text-black">Trivia Game: Which Countries in the World?!</div>
+    </div>
+
+    <div id="start-game-box" class="container text-center">
+
+        <button id="start-button" class="btn btn-info">START</button>
+
+    </div>
+
+    <div id="form-questions" class="container text-white mr-5">
+
+            <div id="timers-div" class="card bg-secondary text-white w-75 p-5">The time you have left is:
+                <span id="timers"></span>
+            </div>
+            <br>
+
+            <div id="q1-div" class="card bg-secondary text-white w-75 p-5">
+                <p>Q1 : What is the largest coffee growing country in the world?</p>
+                <form action="" method="post">
+                    <input type="radio" name="question1" value="Brazil" /> Brazil
+                    <input type="radio" name="question1" value="Argentina" /> Argentina
+                    <input type="radio" name="question1" value="Mexico" /> Mexico
+                </form>
+                <br>
+            </div>
+
+            <div id="q2-div" class="card bg-secondary text-white w-75 p-5">
+                <p>Q2 : Which country ranks second in terms of land area in the world?</p>
+                <form action="" method="post">
+                    <input type="radio" name="question2" value="United States of America" /> United States of America
+                    <input type="radio" name="question2" value="Russia" /> Russia
+                    <input type="radio" name="question2" value="Canada" /> Canada
+                </form>
+                <br>
+            </div>
+
+            <div id="q3-div" class="card bg-secondary text-white w-75 p-5">
+            <p>Q3 : Which countries are the largest producer of manganese in the world?</p>
+            <form action="" method="post">
+                <input type="checkbox" name="question3-1" value="China" /> China
+                <input type="checkbox" name="question3-2" value="India" /> India
+                <input type="checkbox" name="question3-3" value="South Africa" /> South Africa
+            </form>
+            <br>
+        </div>
+
+        <div id="q4-div" class="card bg-secondary text-white w-75 p-5">
+            <p>Q4 : Which country is the largest producer of rubber in the world?</p>
+            <form action="" method="post">
+                <input type="radio" name="question4" value="Thailand" /> Thailand
+                <input type="radio" name="question4" value="Malaysia" /> Malaysia
+                <input type="radio" name="question4" value="Singapore" /> Singapore
+            </form>
+            <br>
+        </div>
+
+        <div id="q5-div" class="card bg-secondary text-white w-75 p-5">
+            <p>Q5 : Which country is also called 'the Land of Rising Sun'?</p>
+            <form action="" method="post">
+                <input type="radio" name="question5" value="Vietnam" /> Vietnam
+                <input type="radio" name="question5" value="Korea" /> Korea
+                <input type="radio" name="question5" value="Japan" /> Japan
+            </form>
+            <br>
+        </div>
+           
+            <button id="submit" class="btn btn-info w-25">Submit!</button>
+        </div>
+
+    </div>
+
+    <div class="container text-white">
+
+        <div id="final-answers" class="card bg-secondary text-white w-75 p-5">
+            <div>Thank You For Doing The Survey!</div>
+            <br>
+            <br>
+            <div>Correct Answers:
+                <span id="correct-answer"></span>
+            </div>
+            <br>
+            <div>Incorrect Answers:
+                <span id="incorrect-answer"></span>
+            </div>
+            <br>
+            <div>Unselected Answers:
+                <span id="no-answer"></span>
+            </div>
+            <br>
+
+            <div id="display-correct-answer"></div>
+            <br>
+        </div>
+    </div>
+
+
+    <!-- app.js -->
+    <script src="assets/javascript/app.js"></script>
+
+</body>
+
+</html>
