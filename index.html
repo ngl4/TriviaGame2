@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>TriviaGame</title>
+    <title>TriviaGame_Version2_Slideshow</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
 
@@ -57,34 +57,41 @@
 
     </div>
 
-    <div id="form-questions" class="container text-white mr-5">
+    <div id="result-message"></div>
 
-            <div id="timers-div" class="card bg-secondary text-white w-75 p-5">The time you have left is:
-                <span id="timers"></span>
-            </div>
+    <div id="form-questions" class="container text-white m-auto">
+
+        <div id="timers-div" class="card bg-secondary text-white w-75 p-5">The time you have left is:
+            <span id="timers"></span>
+        </div>
+        <br>
+
+        <div id="q1-div" class="card bg-secondary text-white w-75 p-5">
+            <p>Q1 : What is the largest coffee growing country in the world?</p>
+            <form action="" method="post">
+                <input type="radio" name="question1" value="Brazil" /> Brazil
+                <input type="radio" name="question1" value="Argentina" /> Argentina
+                <input type="radio" name="question1" value="Mexico" /> Mexico
+            </form>
             <br>
+            <button id="submit-button-1" class="btn btn-info w-25">Submit!</button>
 
-            <div id="q1-div" class="card bg-secondary text-white w-75 p-5">
-                <p>Q1 : What is the largest coffee growing country in the world?</p>
-                <form action="" method="post">
-                    <input type="radio" name="question1" value="Brazil" /> Brazil
-                    <input type="radio" name="question1" value="Argentina" /> Argentina
-                    <input type="radio" name="question1" value="Mexico" /> Mexico
-                </form>
-                <br>
-            </div>
+        </div>
 
-            <div id="q2-div" class="card bg-secondary text-white w-75 p-5">
-                <p>Q2 : Which country ranks second in terms of land area in the world?</p>
-                <form action="" method="post">
-                    <input type="radio" name="question2" value="United States of America" /> United States of America
-                    <input type="radio" name="question2" value="Russia" /> Russia
-                    <input type="radio" name="question2" value="Canada" /> Canada
-                </form>
-                <br>
-            </div>
 
-            <div id="q3-div" class="card bg-secondary text-white w-75 p-5">
+        <div id="q2-div" class="card bg-secondary text-white w-75 p-5">
+            <p>Q2 : Which country ranks second in terms of land area in the world?</p>
+            <form action="" method="post">
+                <input type="radio" name="question2" value="United States of America" /> United States of America
+                <input type="radio" name="question2" value="Russia" /> Russia
+                <input type="radio" name="question2" value="Canada" /> Canada
+            </form>
+            <br>
+            <button id="submit-button-2" class="btn btn-info w-25">Submit!</button>
+
+        </div>
+
+        <div id="q3-div" class="card bg-secondary text-white w-75 p-5">
             <p>Q3 : Which countries are the largest producer of manganese in the world?</p>
             <form action="" method="post">
                 <input type="checkbox" name="question3-1" value="China" /> China
@@ -92,6 +99,8 @@
                 <input type="checkbox" name="question3-3" value="South Africa" /> South Africa
             </form>
             <br>
+            <button id="submit-button-3" class="btn btn-info w-25">Submit!</button>
+
         </div>
 
         <div id="q4-div" class="card bg-secondary text-white w-75 p-5">
@@ -102,6 +111,8 @@
                 <input type="radio" name="question4" value="Singapore" /> Singapore
             </form>
             <br>
+            <button id="submit-button-4" class="btn btn-info w-25">Submit!</button>
+
         </div>
 
         <div id="q5-div" class="card bg-secondary text-white w-75 p-5">
@@ -112,10 +123,11 @@
                 <input type="radio" name="question5" value="Japan" /> Japan
             </form>
             <br>
+            <button id="submit-button-5" class="btn btn-info w-25">Submit!</button>
+
         </div>
-           
-            <button id="submit" class="btn btn-info w-25">Submit!</button>
-        </div>
+
+    </div>
 
     </div>
 
