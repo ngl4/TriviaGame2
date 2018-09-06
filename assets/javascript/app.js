@@ -1,9 +1,3 @@
-//START button
-//show at the beginning
-//hide the button when it is clicked
-//show the timer and the first question
-//Timer Starts decremeting from 10 seconds
-//if it gets to zero, the answer will display === same as the submit button is clicked
 
 var time = 11;
 var intervalId;
@@ -34,6 +28,42 @@ $(document).on("click", "#next-button-2", function() {
     $("#q3-div").show();
     start();
   });
+
+  var nextButton3 = $("<button>");
+  nextButton3.text("NEXT");
+  nextButton3.addClass("btn btn-info w-25 next-button");
+  nextButton3.attr("id", "next-button-3");
+  
+  $(document).on("click", "#next-button-3", function() {
+      $("#result-message").hide();
+      $("#timers-div").show();
+      $("#q4-div").show();
+      start();
+    });
+
+    var nextButton4 = $("<button>");
+  nextButton4.text("NEXT");
+  nextButton4.addClass("btn btn-info w-25 next-button");
+  nextButton4.attr("id", "next-button-4");
+  
+  $(document).on("click", "#next-button-4", function() {
+      $("#result-message").hide();
+      $("#timers-div").show();
+      $("#q5-div").show();
+      start();
+    });
+
+    var nextButton5 = $("<button>");
+  nextButton5.text("NEXT");
+  nextButton5.addClass("btn btn-info w-25 next-button");
+  nextButton5.attr("id", "next-button-5");
+  
+  $(document).on("click", "#next-button-5", function() {
+      $("#result-message").hide();
+      $("#final-answers").show();
+      
+    });
+  
 
 
 //Why the below code is not working???
@@ -83,14 +113,25 @@ $(document).ready(function() {
       $("#result-message").html(
         "<p>Great Try!</p> <p>CORRECT ANSWER: The largest coffee growing country in the world: BRAZIL</p>"
       );
-      $("#result-message").addClass("card bg-secondary text-white w-50 p-5");
+      $("#result-message").addClass("card bg-secondary text-white w-50 p-5 m-auto");
+      $("#result-message").append(nextButton);
     } else {
       noAnswers++;
       $("#result-message").html(
         "<p>Not Sure?!</p> <p>CORRECT ANSWER: The largest coffee growing country in the world: BRAZIL</p>"
       );
-      $("#result-message").addClass("card bg-secondary text-white w-50 p-5");
+      $("#result-message").addClass("card bg-secondary text-white w-50 p-5 m-auto");
+      $("#result-message").append(nextButton);
     }
+    $("#correct-answer")
+    .text(correctAnswers)
+    .addClass("text-white");
+  $("#incorrect-answer")
+    .text(incorrectAnswers)
+    .addClass("text-white");
+  $("#no-answer")
+    .text(noAnswer)
+    .addClass("text-white");
   });
 
 
@@ -115,20 +156,169 @@ $(document).ready(function() {
     } else if (answer2 === "United States of America" || answer2 === "Russia") {
       incorrectAnswers++;
       $("#result-message").html(
-        "<p>Great Try!</p> <p>CORRECT ANSWER: CORRECT ANSWER: The country ranks second in terms of land area in the world: CANADA</p>"
+        "<p>Great Try!</p> <p>CORRECT ANSWER: The country ranks second in terms of land area in the world: CANADA</p>"
       );
-      $("#result-message").addClass("card bg-secondary text-white w-50 p-5");
+      $("#result-message").addClass("card bg-secondary text-white w-50 p-5 m-auto");
+      $("#result-message").append(nextButton2);
       
     } else {
       noAnswers++;
       $("#result-message").html(
         "<p>Not Sure?!</p> <p>CORRECT ANSWER: The country ranks second in terms of land area in the world: CANADA</p>"
       );
-      $("#result-message").addClass("card bg-secondary text-white w-50 p-5");
+      $("#result-message").addClass("card bg-secondary text-white w-50 p-5 m-auto");
+      $("#result-message").append(nextButton2);
     }
+    $("#correct-answer")
+    .text(correctAnswers)
+    .addClass("text-white");
+  $("#incorrect-answer")
+    .text(incorrectAnswers)
+    .addClass("text-white");
+  $("#no-answer")
+    .text(noAnswer)
+    .addClass("text-white");
+  });
+
+  $("#submit-button-3").click(function() {
+    $("#timers-div").hide();
+    $("#q3-div").hide();
+    $("#result-message").show();
+    stop();
+
+    var answer3o1 = $("input[type=checkbox][name=question3-1]:checked").val();
+  var answer3o2 = $("input[type=checkbox][name=question3-2]:checked").val();
+  var answer3o3 = $("input[type=checkbox][name=question3-3]:checked").val();
+
+    if (answer3o1 && answer3o3 && !answer3o2) {
+      correctAnswers++;
+      $("#result-message").html(
+        "<p>Congratulation!!!</p> <p>You are correct!</p>"
+      );
+      $("#result-message").addClass(
+        "card bg-secondary text-white w-50 p-5 m-auto"
+      );
+      $("#result-message").append(nextButton3);
+      
+    } else if (!answer3o1 && !answer3o2 && !answer3o3) {
+      noAnswers++;
+      
+      $("#result-message").html(
+        "<p>Not Sure?!</p> <p>CORRECT ANSWER: The countries have the largest production of manganese in the world: CHINA and SOUTH AFRICA</p>"
+      );
+      $("#result-message").addClass("card bg-secondary text-white w-50 p-5 m-auto");
+      $("#result-message").append(nextButton3);
+      
+    } else {
+      incorrectAnswers++;
+      $("#result-message").html(
+        "<p>Great Try!</p><p>CORRECT ANSWER: The countries have the largest production of manganese in the world: CHINA and SOUTH AFRICA</p>"
+      );
+      $("#result-message").addClass("card bg-secondary text-white w-50 p-5 m-auto");
+      $("#result-message").append(nextButton3);
+    }
+    $("#correct-answer")
+    .text(correctAnswers)
+    .addClass("text-white");
+  $("#incorrect-answer")
+    .text(incorrectAnswers)
+    .addClass("text-white");
+  $("#no-answer")
+    .text(noAnswer)
+    .addClass("text-white");
   });
 
 
+
+  $("#submit-button-4").click(function() {
+    $("#timers-div").hide();
+    $("#q4-div").hide();
+    $("#result-message").show();
+    stop();
+
+    var answer4 = $("input[type=radio][name=question4]:checked").val();
+    if (answer4 === "Malaysia") {
+      correctAnswers++;
+      $("#result-message").html(
+        "<p>Congratulation!!!</p> <p>You are correct!</p>"
+      );
+      $("#result-message").addClass(
+        "card bg-secondary text-white w-50 p-5 m-auto"
+      );
+      $("#result-message").append(nextButton4);
+      
+    } else if (answer4 === "Thailand" || answer4 === "Singapore") {
+      incorrectAnswers++;
+      $("#result-message").html(
+        "<p>Great Try!</p> <p>CORRECT ANSWER: The country has the largest production of rubber in the world: MALAYSIA</p>"
+      );
+      $("#result-message").addClass("card bg-secondary text-white w-50 p-5 m-auto");
+      $("#result-message").append(nextButton4);
+      
+    } else {
+      noAnswers++;
+      $("#result-message").html(
+        "<p>Not Sure?!</p> <p>CORRECT ANSWER: The country has the largest production of rubber in the world: MALAYSIA</p>"
+      );
+      $("#result-message").addClass("card bg-secondary text-white w-50 p-5 m-auto");
+      $("#result-message").append(nextButton4);
+    }
+    $("#correct-answer")
+    .text(correctAnswers)
+    .addClass("text-white");
+  $("#incorrect-answer")
+    .text(incorrectAnswers)
+    .addClass("text-white");
+  $("#no-answer")
+    .text(noAnswer)
+    .addClass("text-white");
+  });
+
+
+  $("#submit-button-5").click(function() {
+    $("#timers-div").hide();
+    $("#q5-div").hide();
+    $("#result-message").show();
+    stop();
+
+
+  var answer5 = $("input[type=radio][name=question5]:checked").val();
+    if (answer5 === "Japan") {
+      correctAnswers++;
+      $("#result-message").html(
+        "<p>Congratulation!!!</p> <p>You are correct!</p>"
+      );
+      $("#result-message").addClass(
+        "card bg-secondary text-white w-50 p-5 m-auto"
+      );
+      $("#result-message").append(nextButton5);
+      
+    } else if (answer5 === "Vietnam" || answer5 === "Korea") {
+      incorrectAnswers++;
+      $("#result-message").html(
+        "<p>Great Try!</p> <p>CORRECT ANSWER: The country also has the name of 'the Land of Rising Sun' is: JAPAN</p>"
+      );
+      $("#result-message").addClass("card bg-secondary text-white w-50 p-5 m-auto");
+      $("#result-message").append(nextButton5);
+      
+    } else {
+      noAnswers++;
+      $("#result-message").html(
+        "<p>Not Sure?!</p> <p>CORRECT ANSWER: The country also has the name of 'the Land of Rising Sun' is: JAPAN</p>"
+      );
+      $("#result-message").addClass("card bg-secondary text-white w-50 p-5 m-auto");
+      $("#result-message").append(nextButton5);
+    }
+    $("#correct-answer")
+    .text(correctAnswers)
+    .addClass("text-white");
+  $("#incorrect-answer")
+    .text(incorrectAnswers)
+    .addClass("text-white");
+  $("#no-answer")
+    .text(noAnswer)
+    .addClass("text-white");
+  });
 
 
 });
@@ -160,26 +350,4 @@ function stop() {
   $("#timers").text(time);
 }
 
-//QUESTIONS  (same for each question)
-//show with the timer starts
-//includes a SUBMIT button
 
-//SUBMIT button
-//when the submit button is clicked, it will compare the answers
-//the timer stops
-//save up the answers (for final display of all the correct/incorrect/unselected answers)
-//if it is a correct answer, display text- congratualtion, display image, and display the correct answer
-//if it is incorrect/unselected, display text- Great try, but.../ You are not sure?, display image, and display correct answer
-//a NEXT button to go to the next question
-
-//NEXT button
-//show second question
-//timer starts
-//includes submit button
-
-//When we get to the last question, after submitting the answer,
-//there is no next button; replace it with SHOW RESULTS button
-
-//SHOW RESULTS button
-//display final-answer id
-//includes a RESTART button to restart the entire game
