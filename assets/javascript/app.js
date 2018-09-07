@@ -6,7 +6,7 @@ var noAnswers = 0;
 
 var nextButton = $("<button>");
 nextButton.text("NEXT");
-nextButton.addClass("btn btn-info w-25 next-button");
+nextButton.addClass("btn btn-info w-25");
 nextButton.attr("id", "next-button-1");
 
 $(document).on("click", "#next-button-1", function() {
@@ -18,7 +18,7 @@ $(document).on("click", "#next-button-1", function() {
 
 var nextButton2 = $("<button>");
 nextButton2.text("NEXT");
-nextButton2.addClass("btn btn-info w-25 next-button");
+nextButton2.addClass("btn btn-info w-25");
 nextButton2.attr("id", "next-button-2");
 
 $(document).on("click", "#next-button-2", function() {
@@ -30,7 +30,7 @@ $(document).on("click", "#next-button-2", function() {
 
 var nextButton3 = $("<button>");
 nextButton3.text("NEXT");
-nextButton3.addClass("btn btn-info w-25 next-button");
+nextButton3.addClass("btn btn-info w-25");
 nextButton3.attr("id", "next-button-3");
 
 $(document).on("click", "#next-button-3", function() {
@@ -42,7 +42,7 @@ $(document).on("click", "#next-button-3", function() {
 
 var nextButton4 = $("<button>");
 nextButton4.text("NEXT");
-nextButton4.addClass("btn btn-info w-25 next-button");
+nextButton4.addClass("btn btn-info w-25");
 nextButton4.attr("id", "next-button-4");
 
 $(document).on("click", "#next-button-4", function() {
@@ -54,7 +54,7 @@ $(document).on("click", "#next-button-4", function() {
 
 var nextButton5 = $("<button>");
 nextButton5.text("NEXT");
-nextButton5.addClass("btn btn-info w-25 next-button");
+nextButton5.addClass("btn btn-info w-25");
 nextButton5.attr("id", "next-button-5");
 
 $(document).on("click", "#next-button-5", function() {
@@ -62,6 +62,18 @@ $(document).on("click", "#next-button-5", function() {
   $("#final-answers").show();
 });
 
+var restartButton = $("<button>");
+restartButton.text("RESTART");
+restartButton.addClass("btn btn-info w-25");
+restartButton.attr("id", "restart-button");
+
+$(document).on("click", "#restart-button", function() {
+  $("#start-button").show();
+  $("#result-message").hide();
+  $("#form-questions").hide();
+  $("#final-answers").hide();
+  $("#try-again-div").hide();
+});
 
 $(document).ready(function() {
   startGame();
@@ -157,7 +169,8 @@ $(document).ready(function() {
     }
     $("#result-message").html(response_text);
     $("#result-message").addClass(
-      "card bg-secondary text-white w-50 p-5 m-auto");
+      "card bg-secondary text-white w-50 p-5 m-auto"
+    );
     $("#result-message").append(nextButton3);
     displayTotal();
   });
@@ -174,14 +187,17 @@ $(document).ready(function() {
       var response_text = "<p>Congratulation!!!</p> <p>You are correct!</p>";
     } else if (answer4 === "Thailand" || answer4 === "Singapore") {
       incorrectAnswers++;
-      var response_text = "<p>Great Try!</p> <p>CORRECT ANSWER: The country has the largest production of rubber in the world: MALAYSIA</p>";
+      var response_text =
+        "<p>Great Try!</p> <p>CORRECT ANSWER: The country has the largest production of rubber in the world: MALAYSIA</p>";
     } else {
       noAnswers++;
-      var response_text = "<p>Not Sure?!</p> <p>CORRECT ANSWER: The country has the largest production of rubber in the world: MALAYSIA</p>";
+      var response_text =
+        "<p>Not Sure?!</p> <p>CORRECT ANSWER: The country has the largest production of rubber in the world: MALAYSIA</p>";
     }
     $("#result-message").html(response_text);
     $("#result-message").addClass(
-      "card bg-secondary text-white w-50 p-5 m-auto");
+      "card bg-secondary text-white w-50 p-5 m-auto"
+    );
     $("#result-message").append(nextButton4);
     displayTotal();
   });
@@ -198,19 +214,21 @@ $(document).ready(function() {
       var response_text = "<p>Congratulation!!!</p> <p>You are correct!</p>";
     } else if (answer5 === "Vietnam" || answer5 === "Korea") {
       incorrectAnswers++;
-      var response_text = "<p>Great Try!</p> <p>CORRECT ANSWER: The country also has the name of 'the Land of Rising Sun' is: JAPAN</p>";
+      var response_text =
+        "<p>Great Try!</p> <p>CORRECT ANSWER: The country also has the name of 'the Land of Rising Sun' is: JAPAN</p>";
     } else {
       noAnswers++;
-      var response_text = "<p>Not Sure?!</p> <p>CORRECT ANSWER: The country also has the name of 'the Land of Rising Sun' is: JAPAN</p>";
+      var response_text =
+        "<p>Not Sure?!</p> <p>CORRECT ANSWER: The country also has the name of 'the Land of Rising Sun' is: JAPAN</p>";
     }
     $("#result-message").html(response_text);
     $("#result-message").addClass(
-      "card bg-secondary text-white w-50 p-5 m-auto");
+      "card bg-secondary text-white w-50 p-5 m-auto"
+    );
     $("#result-message").append(nextButton5);
     displayTotal();
   });
 });
-
 
 function startGame() {
   $("#start-button").show();
@@ -224,8 +242,18 @@ function decrement() {
   $("#timers").text(time);
 
   if (time === 0) {
-    stop();
-    //display answer
+    clearInterval(intervalId);
+    time = 10;
+    $("#timers").text(time);
+    
+    $("#try-again-div").html("<p>Time's up!!! Try Again!");
+    $("#try-again-div").addClass(
+      "card bg-secondary text-white w-50 p-5 m-auto"
+    );
+    $("#try-again-div").append(restartButton);
+    $("#try-again-div").show();
+    $("#result-message").hide();
+    $("#form-questions").hide();
   }
 }
 
@@ -248,7 +276,6 @@ function displayTotal() {
     .text(noAnswer)
     .addClass("text-white");
 }
-
 
 //SIDE NOTE: Why the below code is not working??? //because this function only work once and does not read through the newly made button
 // $("#next-button").click(function(){ ... });
