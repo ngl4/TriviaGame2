@@ -1,9 +1,11 @@
+//declare global variables
 var time = 11;
 var intervalId;
 var correctAnswers = 0;
 var incorrectAnswers = 0;
 var noAnswers = 0;
 
+//Next Buttons created for each question to go to the next question
 var nextButton = $("<button>");
 nextButton.text("NEXT");
 nextButton.addClass("btn btn-info w-25");
@@ -62,6 +64,7 @@ $(document).on("click", "#next-button-5", function() {
   $("#final-answers").show();
 });
 
+//restart button shows up when time's up 
 var restartButton = $("<button>");
 restartButton.text("RESTART");
 restartButton.addClass("btn btn-info w-25");
@@ -74,6 +77,7 @@ $(document).on("click", "#restart-button", function() {
   $("#final-answers").hide();
   $("#try-again-div").hide();
 });
+
 
 $(document).ready(function() {
   startGame();
@@ -88,9 +92,11 @@ $(document).ready(function() {
     $("#q4-div").hide();
     $("#q5-div").hide();
 
+    //timer starts when this start button is clicked (see below page for start function)
     start();
   });
 
+  //submit button is used to validate input answers
   $("#submit-button-1").click(function() {
     $("#timers-div").hide();
     $("#q1-div").hide();
@@ -115,7 +121,8 @@ $(document).ready(function() {
       "card bg-secondary text-white w-50 p-5 m-auto"
     );
     $("#result-message").append(nextButton);
-    displayTotal();
+    //display the total numbers of correct, incorrect, unselected answers when game's end
+    displayTotal(); 
   });
 
   $("#submit-button-2").click(function() {
@@ -150,7 +157,7 @@ $(document).ready(function() {
     $("#q3-div").hide();
     $("#result-message").show();
     stop();
-
+    //becaus of checkbox input, it is better to use variables for validation
     var answer3o1 = $("input[type=checkbox][name=question3-1]:checked").val();
     var answer3o2 = $("input[type=checkbox][name=question3-2]:checked").val();
     var answer3o3 = $("input[type=checkbox][name=question3-3]:checked").val();
@@ -246,6 +253,7 @@ function decrement() {
     time = 10;
     $("#timers").text(time);
     
+    //display this div when time's up to restart game 
     $("#try-again-div").html("<p>Time's up!!! Try Again!");
     $("#try-again-div").addClass(
       "card bg-secondary text-white w-50 p-5 m-auto"
@@ -257,16 +265,19 @@ function decrement() {
   }
 }
 
+//Timer start function
 function start() {
   intervalId = setInterval(decrement, 1000);
 }
 
+//Timer stop function 
 function stop() {
   clearInterval(intervalId);
   time = 10;
   $("#timers").text(time);
 }
 
+//display total numbers at the end of the game 
 function displayTotal() {
   $("#correct-answer")
     .text(correctAnswers)
