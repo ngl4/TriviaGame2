@@ -284,7 +284,7 @@ function displayTotal() {
     .addClass("text-white");
   $("#incorrect-answer").text(incorrectAnswers);
   $("#no-answer")
-    .text(noAnswer)
+    .text(noAnswers)
     .addClass("text-white");
 }
 
